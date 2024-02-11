@@ -1,4 +1,4 @@
-# Simple JavaScript Calculator
+# Lodza JavaScript Calculator
 
 ## Overview
 This project is a simple calculator built with HTML, CSS, and JavaScript. It provides a colorful interface with button press animations and includes basic arithmetic operations: addition, subtraction, multiplication, and division.
