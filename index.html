@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-color: #f2f2f2;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  max-width: 330px;
+  margin: auto;
+  padding: 20px;
+}
+
+.button {
+  height: 60px;
+  width: 60px;
+  font-size: 20px;
+  margin: 2px;
+  color: #fff;
+  background-color: #f39c12;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 5px 0 #e67e22;
+  transition: all 0.1s ease;
+}
+
+.button:hover {
+  background-color: #e67e22;
+  box-shadow: 0 5px 0 #d35400;
+}
+
+.button:active {
+  transform: translateY(4px);
+  box-shadow: 0 1px 0 #d35400;
+}
+
+.screen {
+  height: 80px;
+  width: 302px;
+  margin: auto;
+  margin-bottom: 10px;
+  background-color: #ecf0f1;
+  border-radius: 3px;
+  box-shadow: inset 0 4px #bdc3c7;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 10px;
+  font-size: 40px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div id="screen" class="screen"></div>
+  <button class="button" onclick="inputNumber(7)">7</button>
+  <button class="button" onclick="inputNumber(8)">8</button>
+  <button class="button" onclick="inputNumber(9)">9</button>
+  <button class="button" onclick="inputOperator('/')">/</button>
+  <button class="button" onclick="inputNumber(4)">4</button>
+  <button class="button" onclick="inputNumber(5)">5</button>
+  <button class="button" onclick="inputNumber(6)">6</button>
+  <button class="button" onclick="inputOperator('*')">*</button>
+  <button class="button" onclick="inputNumber(1)">1</button>
+  <button class="button" onclick="inputNumber(2)">2</button>
+  <button class="button" onclick="inputNumber(3)">3</button>
+  <button class="button" onclick="inputOperator('-')">-</button>
+  <button class="button" onclick="inputNumber(0)">0</button>
+  <button class="button" onclick="clearScreen()">C</button>
+  <button class="button" onclick="calculate()">=</button>
+  <button class="button" onclick="inputOperator('+')">+</button>
+</div>
+
+<script>
+let screen = document.getElementById('screen');
+let operator = null;
+let operand1 = 0;
+let operand2 = null;
+
+function inputNumber(num) {
+  screen.textContent += num;
+}
+
+function inputOperator(op) {
+  operator = op;
+  operand1 = parseFloat(screen.textContent);
+  screen.textContent = '';
+}
+
+function clearScreen() {
+  screen.textContent = '';
+}
+
+function calculate() {
+  operand2 = parseFloat(screen.textContent);
+  let result = eval(operand1 + ' ' + operator + ' ' + operand2);
+  screen.textContent = result;
+}
+</script>
+
+</body>
+</html>
